@@ -25,7 +25,7 @@ SECRET_KEY = 'i=uu898lt4u+l4sc7w!)*&68@-osvs!47+9sp070z%u@334#2z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ec2-3-16-111-249.us-east-2.compute.amazonaws.com']
+ALLOWED_HOSTS = ['ec2-3-16-111-249.us-east-2.compute.amazonaws.com', '127.0.0.1']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'courses',
 ]
 
 MIDDLEWARE = [
@@ -116,5 +117,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
 STATIC_URL = '/static/'
