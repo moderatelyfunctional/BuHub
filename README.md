@@ -2,6 +2,8 @@
 
 **Project Name**: BU Hub Calculator
 
+**Link to our project**: http://3.16.111.249:8000/
+
 _Input your major and AP credits to receive a selection of classes which will fulfill remaining hub credits_
 
 **Built With**: Python, HTML/CSS(Bootstrap), javascript, jQuery, Django, Requests/BeautifulSoup4, 
@@ -14,7 +16,14 @@ education requirements which is called "The Hub". It revolves around taking cour
 Many of the current freshman class find the requirements for The Hub unintuitive and have trouble deciding
 which classes to take in order to efficiently fulfill all the requirements. Our project aims to help these
 students and after they input their major and which AP credits they received, provide them with a personalized list
+<<<<<<< HEAD
 of classes which they may take throughout their time at BU which will ensure that the Hub is fulfilled.
 
 **What We Did**: 1) We scraped various BU pages to fetch class data for all the courses that fulfill Hub requirements.
 2) We then wrote an algorithm to generate a greedy strategy to search for classes. 3) Then we built the UI for the app. 
+||||||| merged common ancestors
+of classes which they may take throughout their time at BU which will ensure that the Hub is fulfilled.
+=======
+of classes which they may take throughout their time at BU which will ensure that the Hub is fulfilled.
+
+>>>>>>> d4d9e29962d9cafe0c8af7eb5e7b25279267e546
