@@ -21,9 +21,3 @@ of classes which they may take throughout their time at BU which will ensure tha
 
 **What We Did**: 1) We scraped various BU pages to fetch class data for all the courses that fulfill Hub requirements.
 2) We then wrote an algorithm to generate a greedy strategy to search for classes. 3) Then we built the UI for the app. 
-||||||| merged common ancestors
-of classes which they may take throughout their time at BU which will ensure that the Hub is fulfilled.
-=======
-of classes which they may take throughout their time at BU which will ensure that the Hub is fulfilled.
-
->>>>>>> d4d9e29962d9cafe0c8af7eb5e7b25279267e546
