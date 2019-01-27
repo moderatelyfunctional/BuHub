@@ -2,6 +2,8 @@
 
 **Project Name**: BU Hub Calculator
 
+**Link to our project**: http://3.16.111.249:8000/
+
 _Input your major and AP credits to receive a selection of classes which will fulfill remaining hub credits_
 
 **Built With**: Python, HTML/CSS(bootstrap), javascript, jquery, Django
@@ -15,3 +17,4 @@ Many of the current freshman class find the requirements for The Hub unintuitive
 which classes to take in order to efficiently fulfill all the requirements. Our project aims to help these
 students and after they input their major and which AP credits they received, provide them with a personalized list
 of classes which they may take throughout their time at BU which will ensure that the Hub is fulfilled.
+
