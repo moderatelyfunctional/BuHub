@@ -4,10 +4,18 @@ from bs4 import BeautifulSoup
 
 department_list = []
 
-def scrape_page(url):
-    #specify url
-    quote_page = url
+def fetch_pages(url):
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
 
+    pagination_elements = soup.find_all('div', class_='pagination')
+    if not pagination_elements:
+        return ['']
+    pages = [i + 2 for i in range(len(pagination_elements[0]) - 1)]
+    pages = [''] + pages
+    return pages
+
+def scrape_page(url):
     #set page = website html
     response = requests.get(url)
 
@@ -73,12 +81,18 @@ departments = [
 
 for department in departments:
     quote_url = '{}/{}'.format(BASE_URL, department)
-    print(quote_url)
-    output_data = scrape_page(quote_url)
+    pages = fetch_pages(quote_url)
+
+    output = []
+    for page in pages:
+        if page == '':
+            output += scrape_page(quote_url)
+        else:
+            output += scrape_page('{}/{}'.format(quote_url, page))
     print('Writing {}'.format(department))
     with open('data/{}.csv'.format(department), 'w') as f:
         data_writer = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-        for row in output_data:
+        for row in output:
             department_row = [department]
             data_row = [element for element in row]
             data_writer.writerow(department_row + data_row)
