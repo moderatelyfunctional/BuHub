@@ -4,7 +4,7 @@
 
 _Input your major and AP credits to receive a selection of classes which will fulfill remaining hub credits_
 
-**Built With**: Python, HTML/CSS(bootstrap), javascript, jquery, Django
+**Built With**: Python, HTML/CSS(Bootstrap), javascript, jQuery, Django, Requests/BeautifulSoup4, 
 
 **Team Members**: Jing Lin, Alice Wang, Eric Chao, Erin Chung
 
@@ -15,3 +15,6 @@ Many of the current freshman class find the requirements for The Hub unintuitive
 which classes to take in order to efficiently fulfill all the requirements. Our project aims to help these
 students and after they input their major and which AP credits they received, provide them with a personalized list
 of classes which they may take throughout their time at BU which will ensure that the Hub is fulfilled.
+
+**What We Did**: 1) We scraped various BU pages to fetch class data for all the courses that fulfill Hub requirements.
+2) We then wrote an algorithm to generate a greedy strategy to search for classes. 3) Then we built the UI for the app. 
