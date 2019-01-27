@@ -1,0 +1,48 @@
+#before-major-container {
+	padding-bottom: 20px;
+}
+
+#after-major-container {
+	padding-top: 20px;
+}
+
+#major-container {
+	height: 400px;
+	overflow: scroll;
+}
+
+#ap-container {
+	height: 400px;
+	overflow: scroll;
+}
+
+#hub-container {
+	height: 400px;
+	overflow: scroll;
+}
+
+.action-header {
+	font-size: 32px;
+	font-weight: 500;
+}
+
+.major-item {
+	font-size: 24px;
+}
+
+.ap-item {
+	font-size: 18px;
+}
+
+.selected-major-item {
+	background-color: orange;
+}
+
+.hub-area {
+	margin-top: 20px;
+	font-size: 22px;
+}
+
+.hub-class {
+	padding-bottom: 5px;
+}

@@ -1,0 +1,17 @@
+<div id="submit-ap-container" class="hide">
+    <div id="before-major-container" class="col-lg-12 col-md-12 col-sm-12">
+        <div class='action-header'>Select AP classes you've taken</div>
+    </div>
+    <div id="ap-container" class="col-lg-12 col-md-12 col-sm-12">
+        {% for ap in aps %}
+        <div id="{{ ap.examination }}-{{ ap.score }}" class="row ap-item col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-5 col-md-4 col-sm-4">{{ ap.examination }}</div>
+            <div class="col-lg-1 col-md-1 col-sm-1">{{ ap.score }}</div>
+            <div class="col-lg-4 col-md-1 col-sm-1">{{ ap.course_equivalent }}</div>
+        </div>
+        {% endfor %}
+    </div>
+    <div id="after-major-container" class="col-lg-4 col-md-4 col-sm-4">
+        <button id="submit-ap-btn" type="button" class="submit-btn btn btn-primary">Next</button>
+    </div>
+</div>

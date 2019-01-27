@@ -1,0 +1,13 @@
+<div id="submit-major-container">
+    <div id="before-major-container" class="col-lg-12 col-md-12 col-sm-12">
+        <div class='action-header'>Select your major</div>
+    </div>
+    <div id="major-container" class="col-lg-12 col-md-12 col-sm-12">
+        {% for major in majors %}
+        <div class="major-item">{{ major.course }}</div>
+        {% endfor %}
+    </div>
+    <div id="after-major-container" class="col-lg-4 col-md-4 col-sm-4">
+        <button id="submit-major-btn" type="button" class="submit-btn btn btn-primary">Next</button>
+    </div>
+</div>

@@ -21,5 +21,6 @@ import courses.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', courses.views.index),
-    path('compute_fewest_hubs/', courses.views.compute_fewest_hubs)
+    path('fetch_hub_classes/', courses.views.fetch_hub_classes),
+    path('compute_fewest_hubs/', courses.views.compute_fewest_hubs),
 ]
