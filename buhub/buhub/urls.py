@@ -20,6 +20,6 @@ import courses.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', courses.views.index),
-    path('fetch_requirements/', courses.views.fetch_requirements)
+    path('question1/', courses.templates.question1),
+    path('question2/', courses.templates.question2)
 ]
