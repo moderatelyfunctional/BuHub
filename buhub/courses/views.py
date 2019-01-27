@@ -19,3 +19,9 @@ def index(request):
 
 def fetch_requirements(request):
 	return HttpResponse(json.dumps({'hi': 4}))
+
+def question1(request):
+	return render(request, 'question1.html')
+
+def question2(request):
+	return render(request, 'question2.html')
