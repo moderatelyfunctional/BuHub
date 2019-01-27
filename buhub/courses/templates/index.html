@@ -15,8 +15,11 @@
 		<div id="mainContainer" class="container">
 			Home
 		</div>
+		{% csrf_token %}
+
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+		<script type="text/javascript" src="/static/base/javascript/ajax_csrf.js"></script>
 		<script type="text/javascript" src="/static/courses/javascript/base.js"></script>
 	</body>
 </html>
