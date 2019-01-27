@@ -20,6 +20,6 @@ import courses.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('question1/', courses.templates.question1),
-    path('question2/', courses.templates.question2)
+    path('', courses.views.index),
+    path('compute_fewest_hubs/', courses.views.compute_fewest_hubs)
 ]

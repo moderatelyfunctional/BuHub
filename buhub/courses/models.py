@@ -2,6 +2,10 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 # Create your models here.
+class ActualHubCourse(models.Model):
+	title_course_name = models.CharField(_('title_course_name'), max_length=128)
+	subareas = models.TextField(_('subareas'))
+
 class APClasses(models.Model):
 	examination = models.CharField(_('examination'), max_length=64)
 	score = models.CharField(_('score'), max_length=16)
