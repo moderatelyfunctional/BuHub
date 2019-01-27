@@ -26,9 +26,11 @@ def scrape_page(url):
             continue
         title_and_course_number_split = title_and_course_number.text.split(' ')
         title_number = int(title_and_course_number_split[2][:-1])
-        course = ' '.join(title_and_course_number_split[3:])
+        coursename = ' '.join(title_and_course_number_split[3:])
+        print(course.text)
+        course_desc = course.text[:course.text.index('<div')]
 
-        output.append((title_number, course))
+        output.append((title_number, coursename, course_desc))
     return output
 
 BASE_URL = 'http://www.bu.edu/academics/cas/courses'
