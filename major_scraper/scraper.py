@@ -1,5 +1,5 @@
 import csv
-import urllib.request
+import requests
 from bs4 import BeautifulSoup
 
 department_list = []
@@ -9,10 +9,10 @@ def scrape_page(url):
     quote_page = url
 
     #set page = website html
-    page = urllib.request.urlopen(quote_page)
+    response = requests.get(url)
 
     #set soup = parsed html
-    soup = BeautifulSoup(page, 'html.parser')
+    soup = BeautifulSoup(response.text, 'html.parser')
 
     dep_courses = soup.find('ul', attrs={'class': 'course-feed'})
 
@@ -26,11 +26,22 @@ def scrape_page(url):
             continue
         title_and_course_number_split = title_and_course_number.text.split(' ')
         title_number = int(title_and_course_number_split[2][:-1])
-        coursename = ' '.join(title_and_course_number_split[3:])
-        print(course.text)
-        course_desc = course.text[:course.text.index('<div')]
+        course_name = ' '.join(title_and_course_number_split[3:])
+        
+        string_course = str(course)
+        desc_start = string_course.find('<br/>')
 
-        output.append((title_number, coursename, course_desc))
+        string_course = string_course[desc_start + len('<br/>'):]
+        next_potential_br = string_course.find('<br/>')
+        if next_potential_br:
+            string_course = string_course[next_potential_br + len('<br/>'):]
+
+        desc_end = string_course.find('<div class="cf-hub-ind">')
+        if desc_end < 0:
+            desc_end = string_course.find('</li>')
+
+        course_desc = string_course[desc_start:desc_end].strip().encode('utf-8')
+        output.append((title_number, course_name, course_desc))
     return output
 
 BASE_URL = 'http://www.bu.edu/academics/cas/courses'
@@ -44,11 +55,11 @@ departments = [
     'asian-studies', 'astronomy', 'biochemistry-molecular-biology',
     'biology', 'chemistry', 'modern-languages-chinese',
     'cinema-media-studies', 'classical-studies', 'comparative-literature',
-    'core-curriculum', 'earth-environmenta', 'economics',
+    'core-curriculum', 'earth-environment', 'economics',
     'editorial-studies', 'english', 'first-year-experience',
     'modern-languages-french', 'modern-languages-german',
     'modern-languages-hebrew', 'modern-languages-hindi', 'history',
-    'art-history', 'inte rnational-relations', 'internships',
+    'art-history', 'international-relations', 'internships',
     'modern-languages-italian', 'modern-languages-japanese',
     'modern-languages-korean', 'modern-languages-linguistics',
     'marine-science', 'mathematics-statistics', 'middle-east-studies',
@@ -62,6 +73,21 @@ departments = [
 
 for department in departments:
     quote_url = '{}/{}'.format(BASE_URL, department)
-    print(scrape_page(quote_url))
-    break
+    print(quote_url)
+    output_data = scrape_page(quote_url)
+    print('Writing {}'.format(department))
+    with open('data/{}.csv'.format(department), 'w') as f:
+        data_writer = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        for row in output_data:
+            department_row = [department]
+            data_row = [element for element in row]
+            data_writer.writerow(department_row + data_row)
+
+
+
+
+
+
+
+
 
