@@ -4,6 +4,7 @@ from .models import APClasses, Courses, MajorCourse, HubCourse
 # Register your models here.
 class APClassesAdmin(admin.ModelAdmin):
 	fields = ('examination', 'score', 'course_equivalent', 'bu_hub_area')
+	list_display = ('examination', 'score', 'course_equivalent', 'bu_hub_area')
 
 class CoursesAdmin(admin.ModelAdmin):
 	fields = ('course',)

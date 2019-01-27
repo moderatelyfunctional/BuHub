@@ -9,8 +9,12 @@ from courses.models import APClasses, Courses
 def index(request):
 	context = {
 		'majors': Courses.objects.all().order_by('course'),
-		'aps': APClasses.objects.all().order_by('examination')
+		'aps': APClasses.objects.all().order_by('examination'),
 	}
+	context['ap_to_hub'] = dict()
+	for ap in context['aps']:
+		context['ap_to_hub'][ap.examination + '-' + ap.score] = ap.bu_hub_area
+	context['ap_to_hub'] = json.dumps(context['ap_to_hub'])
 	return render(request, 'index.html', context)
 
 def fetch_requirements(request):

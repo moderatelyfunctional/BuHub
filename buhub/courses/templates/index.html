@@ -18,6 +18,7 @@
             <div class="col-lg-10 col-md-10 col-sm-12">
                 {% include 'partials/submit_major.html' with majors=majors %}
                 {% include 'partials/submit_ap.html' with aps=aps %}
+                {% include 'partials/submit_hub.html' %}
             </div>
             <div class="col-lg-1 col-md-1 col-sm-0"></div>
         </div>
@@ -26,6 +27,9 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
         <script type="text/javascript" src="/static/base/javascript/ajax_csrf.js"></script>
         <script type="text/javascript" src="/static/courses/javascript/base.js"></script>
+        <script>
+            const ap_to_hub = {{ ap_to_hub|safe }};         
+        </script>
         <script type="text/javascript" src="/static/courses/javascript/index.js"></script>
 	</body>
 </html>
